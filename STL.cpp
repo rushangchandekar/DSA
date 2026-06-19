@@ -72,12 +72,55 @@ int main() {
     // }
     // cout << endl;
 
-    vector<int> vec = {5, 2, 8, 1, 3};
-    sort(vec.begin(), vec.end());
+    // vector<int> vec = {5, 2, 8, 1, 3};
+    // sort(vec.begin(), vec.end());
 
-    for(int value : vec) {
-        cout << value << " ";
-    }
-    cout << endl;
+    // for(int value : vec) {
+    //     cout << value << " ";
+    // }
+    // cout << endl;
+
+    // vector<int> vec = {5, 2, 8, 1, 3};
+    // sort(vec.begin(), vec.end(), greater<int>());
+
+    // for(int value : vec) {
+    //     cout << value << " ";
+    // }
+    // cout << endl;
+
+    // vector<pair<int, int>> vec = {{1, 5}, {2, 3}, {3, 8}, {4, 1}, {5, 2}};
+    // sort(vec.begin(), vec.end());
+
+    // for(const auto& p : vec) {
+    //     cout << "(" << p.first << ", " << p.second << ") " << endl;
+    // }
+
+    // vector<int> vec = {5, 2, 8, 1, 3};
+    
+    // reverse(vec.begin(), vec.end());
+
+    // for(int value : vec) {
+    //     cout << value << " ";
+    // }
+    // cout << endl;
+
+    // string s = "abc";
+    // next_permutation(s.begin(), s.end());
+
+    // cout << s << endl;
+
+    // cout << max(10, 20) << " " << min(10, 20) << endl;
+
+    // int a=5, b=10;
+    // swap(a, b);
+    // cout << "a= " << a << ", b= " << b << endl;
+
+    vector<int> vec = {1, 2, 3, 4, 5};
+
+    cout << *max_element(vec.begin(), vec.end()) << endl; // Value of max element
+    cout << *min_element(vec.begin(), vec.end()) << endl; // Value of min element
+
+    cout << binary_search(vec.begin(), vec.end(), 4) << endl; // Check if 4 is present in the vector
+
     return 0;
 }
