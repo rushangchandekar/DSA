@@ -64,10 +64,18 @@ int main() {
     // cout << endl;
 
     // Sorting
-    int arr[] = {5, 2, 8, 1, 3};
-    sort(arr, arr + 5);
+    // int arr[] = {5, 2, 8, 1, 3};
+    // sort(arr, arr + 5);
 
-    for(int value : arr) {
+    // for(int value : arr) {
+    //     cout << value << " ";
+    // }
+    // cout << endl;
+
+    vector<int> vec = {5, 2, 8, 1, 3};
+    sort(vec.begin(), vec.end());
+
+    for(int value : vec) {
         cout << value << " ";
     }
     cout << endl;
