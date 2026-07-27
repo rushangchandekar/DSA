@@ -1,1 +1,1 @@
-cout << search(root, 8) << endl;
+g.bfs();

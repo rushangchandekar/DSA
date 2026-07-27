@@ -70,6 +70,77 @@ public:
 
         dfsHelper(src, vis);
     }
+
+    //Cycle Detection in Undirected Graph using DFS
+
+    // bool isCycleUndirDFS(int src, int par, vector<bool> &vis) {
+    //     vis[src] = true;
+    //     list<int> neighbours = l[src];
+
+    //     for(int v : neighbours) {
+    //         if(!vis[v]) {
+    //             if(isCycleUndirDFS(v, src, vis)) {
+    //                 return true;
+    //             }
+    //         } else if(v != par) {
+    //             return true;
+    //         }
+    //     }
+
+    //     return false;
+    // }
+
+    // bool isCycle() {
+    //     vector<bool> &vis(V, false);
+
+    //     for(int i = 0; i < V; i++) {
+    //         if(!vis[i]) {
+    //             if(isCycleUndirDFS(i, -1, vis)) {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    //Cycle Detection in Undirected Graph using BFS
+
+    bool isCycleUndirBFS(int src, vector<bool> &vis) {
+        queue<pair<int, int>> q; //{node, parent}
+        q.push({src, -1});
+        vis[src] = true;
+
+        while(q.size() > 0) {
+            int u = q.front().first;
+            int parU = q.front().second;
+            q.pop();
+
+            list<int> neighbours = l[u];
+            for(int v : neighbours) {
+                if(!vis[v]) {
+                    q.push({v, u});
+                    vis[v] = true;
+                } else if(v != parU) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    bool isCycle() {
+        vector<bool> vis(V, false);
+
+        for(int i = 0; i < V; i++) {
+            if(!vis[i]) {
+                if(isCycleUndirBFS(i, vis)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 };
 
 int main() {
@@ -85,18 +156,26 @@ int main() {
 
     // g.bfs();
 
+    // g.addEdge(0, 1);
+    // g.addEdge(1, 2);
+    // g.addEdge(1, 3);
+    // g.addEdge(2, 4);
+
+    // cout << "DFS Traversal: ";
+    // g.dfs();
+
+    // cout << endl;
+
+    // cout << "BFS Traversal: ";
+    // g.bfs();
+
     g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(0, 3);
     g.addEdge(1, 2);
-    g.addEdge(1, 3);
-    g.addEdge(2, 4);
+    g.addEdge(3, 4);
 
-    cout << "DFS Traversal: ";
-    g.dfs();
-
-    cout << endl;
-
-    cout << "BFS Traversal: ";
-    g.bfs();
+    cout << g.isCycle() << endl;
 
     return 0;
 }
